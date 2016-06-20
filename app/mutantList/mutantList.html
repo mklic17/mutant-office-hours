@@ -1,13 +1,13 @@
-<form>
+<form ng-submit="vm.addMutant()">
     <div class="medium-3 small-6 columns">
-      <input type="text" name="mutantNAme" placeholder="Name" required>
+      <input ng-model="vm.newMutant.name" type="text" name="mutantNAme" placeholder="Name" required>
     </div>
 
     <div class="medium-3 small-g columns">
-        <input type="text" name="phone" placeholder="Phone #" required>
+        <input ng-model="vm.newMutant.phone" type="text" name="phone" placeholder="Phone #" required>
     </div>
 
-    <div class="medium-4 small-8 columns">
+    <div ng-model="vm.newMutant.topic"  class="medium-4 small-8 columns">
       <input type="text" name="topic" placeholder="Topic" required>
     </div>
 
@@ -17,4 +17,5 @@
 
 </form>
 
+{{ vm.newMutant }}
 {{ vm.mutants }}
