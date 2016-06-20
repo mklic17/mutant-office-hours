@@ -10,5 +10,6 @@
 
     // Custom Modules
     'mutantApp.home',
+    'mutantApp.mutantList',
   ]);
 })();
