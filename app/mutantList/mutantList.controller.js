@@ -10,10 +10,10 @@
 
   function MutantListController($firebaseArray) {
     var vm = this; //vm is the alias for the controller
-    var rootRef = firebase.database().ref();
+    var mutantsRef = firebase.database().ref().child('mutants');
 
     vm.addMutant = addMutant;
-    vm.mutants = $firebaseArray(rootRef);
+    vm.mutants = $firebaseArray(mutantsRef);
     vm.newMutant = new Mutant();
 
 
