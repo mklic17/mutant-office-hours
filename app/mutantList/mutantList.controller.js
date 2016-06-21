@@ -10,10 +10,10 @@
 
   function MutantListController($firebaseArray) {
     var vm = this; //vm is the alias for the controller
-    var fireMutantsRef = new Firebase('https://mutant-school.firebaseio.com/');
+    var rootRef = firebase.database().ref();
 
     vm.addMutant = addMutant;
-    vm.mutants = $firebaseArray(fireMutantsRef);
+    vm.mutants = $firebaseArray(rootRef);
     vm.newMutant = new Mutant();
 
 
@@ -27,6 +27,7 @@
 
   function addMutant() {
     vm.mutants.$add(vm.newMutant); //$add will push to our local copy and to the database
+    vm.newMutant = new Mutant();
   }
 
 }
