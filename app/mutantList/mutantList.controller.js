@@ -16,6 +16,7 @@
     vm.mutants = $firebaseArray(mutantsRef);
     vm.newMutant = new Mutant();
     vm.deleteMutant = deleteMutant;
+    vm.toggleComplete = toggleComplete;
 
 
   function Mutant() {
@@ -33,6 +34,10 @@
 
   function deleteMutant(mutant) {
     vm.mutants.$remove(mutant); // list of mutants and delete this specific mutant
+  }
+
+  function toggleComplete(mutant) {
+    vm.mutants.$save(mutant); // just need to save it to the database because it already is saved locally
   }
 
 }
