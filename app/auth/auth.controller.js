@@ -20,7 +20,13 @@
 
 
     function register(user) {
-      return auth.$createUserWithEmailAndPassword(user.email, user.password);
+      return auth.$createUserWithEmailAndPassword(user.email, user.password)
+        .then(function(user) {
+          console.log(user);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
     }
   }
 
