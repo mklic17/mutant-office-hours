@@ -1,11 +1,12 @@
 (function() {
-  'use script';
+  'use strict';
 
   angular
     .module('mutantApp.auth')
     .config(configFunction);
 
-  config.$inject['$stateProvider'];
+
+  configFunction.$inject = ['$stateProvider'];
 
   function configFunction($stateProvider){
     $stateProvider.state('register', {
@@ -15,7 +16,7 @@
       controllerAs: 'vm',
     });
 
-    
+
 
   }
 })();
