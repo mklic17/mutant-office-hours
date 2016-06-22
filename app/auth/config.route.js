@@ -9,12 +9,22 @@
   configFunction.$inject = ['$stateProvider'];
 
   function configFunction($stateProvider){
+
     $stateProvider.state('register', {
       url: '/register',
       templateUrl: 'app/auth/register.html',
       controller: 'AuthController',
-      controllerAs: 'vm',
+      controllerAs: 'vm'
     });
+    $stateProvider.state('login', {
+      url: '/login',
+      templateUrl: 'app/auth/login.html',
+      controller: 'AuthController',
+      controllerAs: 'vm'
+    });
+
+    
+
 
 
 
