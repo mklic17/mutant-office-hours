@@ -6,9 +6,9 @@
     .controller('MutantListController', MutantListController);
 
 
-  MutantListController.$inject=['mutantService', 'firebaseDataService'];
+  MutantListController.$inject=['mutantService', 'textMessageService'];
 
-  function MutantListController(mutantService, firebaseDataService) {
+  function MutantListController(mutantService, textMessageService) {
     var vm = this; //vm is the alias for the controller
 
     vm.addMutant = addMutant;
@@ -35,18 +35,9 @@
     vm.mutants.$save(mutant); // just need to save it to the database because it already is saved locally
   }
 
-    // This function takes a signle mutant as a parameter, and creates a newText object using the mutants,
-    // name, topic, and phone number. Then the newText object is pushed to firebase, setting notified to true
-    // and then saving the mutant to the database.
+
   function sendText(mutant) {
-    var newText = {
-      name: mutant.name,
-      topic: mutant.topic,
-      phoneNumber: mutant.phone,
-    };
-    firebaseDataService.texts.push(newText);
-    mutant.notified = true;
-    vm.mutants.$save(mutant);
+    textMessageService.sendText(mutant, vm.mutants);
   }
 
 
