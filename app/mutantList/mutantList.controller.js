@@ -6,33 +6,25 @@
     .controller('MutantListController', MutantListController);
 
 
-  MutantListController.$inject=['$firebaseArray'];
+  MutantListController.$inject=['$firebaseArray', 'mutantService'];
 
-  function MutantListController($firebaseArray) {
+  function MutantListController($firebaseArray, mutantService) {
     var vm = this; //vm is the alias for the controller
     var mutantsRef = firebase.database().ref().child('mutants');
     var textsRef = firebase.database().ref().child('text');
 
     vm.addMutant = addMutant;
     vm.mutants = $firebaseArray(mutantsRef);
-    vm.newMutant = new Mutant();
+    vm.newMutant = new mutantService.Mutant();
     vm.deleteMutant = deleteMutant;
     vm.toggleComplete = toggleComplete;
     vm.sendText = sendText;
 
-      // Mutant Constructor
-  function Mutant() {
-    this.name = '';
-    this.phone='';
-    this.topic = '';
-    this.notified = false;
-    this.compelte = false;
-  }
 
     // This function takes adds a mutant to the database from the text typed in the input boxes
   function addMutant() {
     vm.mutants.$add(vm.newMutant); //$add will a new object to the local copy and to the database
-    vm.newMutant = new Mutant();
+    vm.newMutant = new mutantService.Mutant();
   }
 
     // This function takes a single mutant as a parameter and removes it from the database

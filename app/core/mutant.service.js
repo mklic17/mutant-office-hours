@@ -7,9 +7,26 @@
 
 
     function mutantService() {
-      var service = {};
-      
+      var service = {
+        Mutant: Mutant,
+        
+      };
+
       return service;
+
+      /////////////////////
+
+      // Mutant Constructor
+      function Mutant() {
+        this.name = '';
+        this.phone='';
+        this.topic = '';
+        this.notified = false;
+        this.compelte = false;
+      }
+
+
+
     }
 
 })();

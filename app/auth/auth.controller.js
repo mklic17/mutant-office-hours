@@ -42,7 +42,7 @@
     }
 
   function logout() {
-    auth.$sigOut();
+    auth.$signOut();
     $state.go('home');
   }
 
