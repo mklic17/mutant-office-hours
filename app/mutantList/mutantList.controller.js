@@ -6,15 +6,13 @@
     .controller('MutantListController', MutantListController);
 
 
-  MutantListController.$inject=['$firebaseArray', 'mutantService'];
+  MutantListController.$inject=['mutantService', 'firebaseDataService'];
 
-  function MutantListController($firebaseArray, mutantService) {
+  function MutantListController(mutantService, firebaseDataService) {
     var vm = this; //vm is the alias for the controller
-    var mutantsRef = firebase.database().ref().child('mutants');
-    var textsRef = firebase.database().ref().child('text');
 
     vm.addMutant = addMutant;
-    vm.mutants = $firebaseArray(mutantsRef);
+    vm.mutants = mutantService.mutants;
     vm.newMutant = new mutantService.Mutant();
     vm.deleteMutant = deleteMutant;
     vm.toggleComplete = toggleComplete;
@@ -46,7 +44,7 @@
       topic: mutant.topic,
       phoneNumber: mutant.phone,
     };
-    textsRef.push(newText);
+    firebaseDataService.texts.push(newText);
     mutant.notified = true;
     vm.mutants.$save(mutant);
   }
