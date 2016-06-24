@@ -6,18 +6,17 @@
     .controller('MutantListController', MutantListController);
 
 
-  MutantListController.$inject=['mutantService', 'textMessageService'];
+  MutantListController.$inject=['mutantService', 'textMessageService', 'user'];
 
-  function MutantListController(mutantService, textMessageService) {
+  function MutantListController(mutantService, textMessageService, user) {
     var vm = this; //vm is the alias for the controller
 
     vm.addMutant = addMutant;
-    vm.mutants = mutantService.mutants;
-    vm.newMutant = new mutantService.Mutant();
+    vm.mutants = mutantService.mutantsByUser(user.uid);
+    vm.newMutant = mutantService.Mutant();
     vm.deleteMutant = deleteMutant;
     vm.toggleComplete = toggleComplete;
     vm.sendText = sendText;
-
 
     // This function takes adds a mutant to the database from the text typed in the input boxes
   function addMutant() {

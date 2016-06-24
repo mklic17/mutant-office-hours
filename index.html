@@ -9,24 +9,9 @@
   </head>
   <body>
 
-    <div ng-controller="AuthController as vm" class="top-bar" id="main-menu">
-       <div class="top-bar-left">
-         <ul class="dropdown menu" data-dropdown-menu>
-           <li><a ui-sref="home" class="menu-text">Mutant School</a></li>
-         </ul>
-       </div>
-       <div class="top-bar-right">
-         <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
-           <li><a ui-sref="login" ng-show="!vm.isLoggedIn()">Log in</a></li>
-           <li><a href="#" ng-click="vm.logout()" ng-show="vm.isLoggedIn()">Log out</a></li>
-         </ul>
-       </div>
-     </div>
+     <xt-navbar></xt-navbar>
 
-
-    <div ui-view class ="row" id="main">
-
-    </div>
+    <div ui-view class ="row" id="main"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
@@ -53,6 +38,10 @@
     <!-- home module -->
     <script src="app/home/home.module.js"></script>
     <script src="app/home/config.route.js"></script>
+
+    <!-- layout module -->
+    <script src="app/layout/layout.module.js"></script>
+    <script src="app/layout/navbar.directive.js"></script>
 
     <!-- mutantList module -->
     <script src="app/mutantList/mutantList.module.js"></script>
