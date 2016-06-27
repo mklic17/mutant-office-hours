@@ -5,9 +5,9 @@
     .module('mutantApp.auth')
     .factory('authService', authService);
 
-    authService.$inject = ['$firebaseAuth'];
+    authService.$inject = ['$firebaseAuth', 'firebaseDataService'];
 
-    function authService($firebaseAuth) {
+    function authService($firebaseAuth, firebaseDataService) {
       var auth = $firebaseAuth();
 
       var service = {
@@ -16,6 +16,7 @@
         logout: logout,
         isLoggedIn: isLoggedIn,
         auth: auth,
+        sendWelcomeEmail: sendWelcomeEmail
       };
 
       return service;
@@ -38,6 +39,13 @@
 
       function isLoggedIn() {
         return auth.$getAuth();
+      }
+
+      function sendWelcomeEmail(emailAddress) {
+        firebaseDataService.emails.push({
+          emailAddress: emailAddress
+        });
+      
       }
 
     }
