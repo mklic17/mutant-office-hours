@@ -14,7 +14,6 @@
         Mutant: Mutant,
         mutantsByUser: mutantsByUser,
         reset: reset,
-
       };
 
       return service;

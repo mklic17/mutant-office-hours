@@ -19,9 +19,9 @@
     NavbarController.$inject = ['$state','authService']
     function NavbarController($state, authService) {
       var vm = this;
-
-      vm.isLoggedIn = authService.isLoggedIn,
+      
       vm.logout = authService.logout,
+      vm.isLoggedIn = authService.isLoggedIn,
 
       function logout() {
         authService.logout();

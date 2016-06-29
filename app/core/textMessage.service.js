@@ -19,7 +19,7 @@
       // This function takes a single mutant as a parameter and an array of mutants, and creates a newText object using the mutants,
       // name, topic, and phone number. Then the newText object is pushed to firebase, setting notified to true
       // and then saving the mutant to the database.
-      function sendText(mutant, mutants) {
+    function sendText(mutant, mutants) {
       var newText = {
         name: mutant.name,
         topic: mutant.topic,
