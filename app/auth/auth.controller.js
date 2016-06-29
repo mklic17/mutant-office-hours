@@ -14,11 +14,6 @@
     vm.login = login;
     vm.error = null;
 
-    vm.user = {
-      email: '',
-      password: ''
-    }
-
 
     function register(user) {
       authService.register(user)
@@ -42,7 +37,6 @@
           vm.error = error;
         });
     }
-
-}
+  }
 
 })();
